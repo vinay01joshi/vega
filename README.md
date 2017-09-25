@@ -13,3 +13,4 @@ Learning Asp.net Core with SPA using angular
 * Add Migrations - `dotnet ef migrations add InitialModel`
 * Remove Migrations -  `dotnet ef migrations remove`
 * Update Database - `dotnet ef database update`
+* Update database with last Migragions - `dotnet ef database update 0`
