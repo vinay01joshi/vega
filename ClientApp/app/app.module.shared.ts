@@ -1,6 +1,3 @@
-import { FeatureService } from './services/feature.service';
-import { MakeService } from './services/make.service';
-import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -12,6 +9,8 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { VehicleService } from './services/vehicle.service';
+import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.component';
 
 @NgModule({
     declarations: [
@@ -35,7 +34,7 @@ import { CounterComponent } from './components/counter/counter.component';
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers :[MakeService,FeatureService]
+    providers :[VehicleService]
 })
 export class AppModuleShared {
 }
