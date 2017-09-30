@@ -21,4 +21,4 @@ Learning Asp.net Core with SPA using angular
 * Self Referencing Loop - ` To prevent self refrenceing loop we convert API model to resources latest commint is - https://github.com/vinay01joshi/vega/commit/fed7f117bb7774ffebda8fbdc320d93bb02610fc  | Best practive - Crate View model as we are creating here as resources `
 
 * Can not Genereate component using angular cli - Read following stackover flow article.
-    ` https://stackoverflow.com/questions/46268181/i-cant-add-new-component-with-angular-cli-in-asp-net-core-spas `
+    ` https://stackoverflow.com/questions/46268181/i-cant-add-new-component-with-angular-cli-in-asp-net-core-spas | command is  - " ng g c vehicle-form  --skip-import=true" `
