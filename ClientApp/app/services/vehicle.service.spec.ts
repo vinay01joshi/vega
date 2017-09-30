@@ -1,6 +1,5 @@
+import { VehicleService } from './vehicle.service';
 import { TestBed, inject } from '@angular/core/testing';
-
-import { VehicleService } from './make.service';
 
 describe('MakeService', () => {
   beforeEach(() => {
