@@ -1,36 +1,45 @@
 <h1>New Vehicle</h1>
 <form>
-  <div class="form-group">
-      <label for="make">Make</label>
-      <select 
-            id="make" 
-            class="form-control" 
-            [(ngModel)]="vehicle.make"
-            name="make"
-            (change)="onMakeChange()">
+    <div class="form-group">
+        <label for="make">Make</label>
+        <select id="make" class="form-control" [(ngModel)]="vehicle.make" name="make" (change)="onMakeChange()">
         <option value=""></option>
         <option *ngFor="let m of makes" value="{{ m.id }}">{{ m.name }}</option>
       </select>
-  </div>
-  <div class="form-group">
-      <label for="model">Model</label>
-      <select id="model" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="model">Model</label>
+        <select id="model" class="form-control">
           <option value=""></option>
           <option *ngFor="let m of  models" value="{{ m.id }}"> {{ m.name }} </option>
       </select>
-  </div>
+    </div>
     <p>Is this vehicle register?</p>
-  
+
     <label for="register" class="radio-inline">
     <input type="radio" name="isRegister" id="register" value="true">Yes</label>
 
-    <label for="notRegister" class="radio-inline" >
+    <label for="notRegister" class="radio-inline">
     <input type="radio"  name="isRegister" id="notRegister" value="false">No</label>
 
 
-  <h2>Features</h2>
-  <div *ngFor="let f of features" class="checkbox">
-    <label for="feature{{ f.id }}">
+    <h2>Features</h2>
+    <div *ngFor="let f of features" class="checkbox">
+        <label for="feature{{ f.id }}">
     <input type="checkbox" id="feature{{ f.id }}" > {{ f.name }} </label>
-  </div>
+    </div>
+    <h2>Contact</h2>
+    <div class="form-group">
+        <label for="contactName">Name</label>
+        <input id="contactName" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="contactPhone">Phone</label>
+        <input id="contactPhone" type="text" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="contactEmail">Email</label>
+        <input id="contactEmail" type="text" class="form-control">
+    </div>
+    <button class="btn btn-primary">Save</button>
 </form>
