@@ -1,4 +1,5 @@
-import { NgModule } from '@angular/core';
+import { AppErrorHandler } from './app.error-handler';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -37,7 +38,10 @@ import { VehicleFormComponent } from './components/vehicle-form/vehicle-form.com
             { path: '**', redirectTo: 'home' }
         ])
     ],
-    providers :[VehicleService]
+    providers :[
+        { provide: ErrorHandler, useClass: AppErrorHandler },
+        VehicleService
+    ]
 })
 export class AppModuleShared {
 }
