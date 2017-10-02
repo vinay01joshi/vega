@@ -16,6 +16,8 @@ const treeShakableModules = [
 ];
 const nonTreeShakableModules = [
     'bootstrap',
+    'ng2-toasty',
+    'ng2-toasty/bundles/style-bootstrap.css',
     'bootstrap/dist/css/bootstrap.css',
     'es6-promise',
     'es6-shim',
