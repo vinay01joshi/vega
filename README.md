@@ -22,3 +22,6 @@ Learning Asp.net Core with SPA using angular
 
 * Can not Genereate component using angular cli - Read following stackover flow article.
     ` https://stackoverflow.com/questions/46268181/i-cant-add-new-component-with-angular-cli-in-asp-net-core-spas | command is  - " ng g c vehicle-form  --skip-import=true" `
+
+* All modules are not complted on first time webpack Errors : - (Run following commands)
+    `webpack --config webpack.config.vendor.js ` and then run `webpack`
