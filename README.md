@@ -25,3 +25,6 @@ Learning Asp.net Core with SPA using angular
 
 * All modules are not complted on first time webpack Errors : - (Run following commands)
     `webpack --config webpack.config.vendor.js ` and then run `webpack`
+
+# Open Issues
+* NgZone is Not defined `https://github.com/vinay01joshi/vega/issues/4`
