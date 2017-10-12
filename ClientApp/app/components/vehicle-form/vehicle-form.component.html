@@ -51,5 +51,6 @@
         <input id="contactEmail" type="text" class="form-control" [(ngModel)]="vehicle.contact.email" name="contactEmail" required #email="ngModel">
         <div class="alert alert-danger" *ngIf="email.touched && !email.valid">Email is required.</div>
     </div>
-    <button class="btn btn-primary" >Save</button>
+    <button class="btn btn-primary" > Save </button>
+    <button *ngIf="vehicle.id" class="btn btn-danger" type="button" (click)="delete()" > Delete </button>
 </form>
