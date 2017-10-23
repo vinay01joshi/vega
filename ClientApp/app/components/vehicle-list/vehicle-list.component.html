@@ -1,25 +1,26 @@
 <h1>Vehicles</h1>
 <p>
     <a [routerLink]="['/vehicles/new']" class="btn btn-primary">New Vehicle</a>
-</p> 
-
-<div class="form-group well">
-    <label for="make">Make</label>
-    <select name="" id="make" class="form-control" [(ngModel)]="filter.makeId" (change)="onFilterChange()">
-        <option value=""></option>
-        <option *ngFor="let m of makes" value="{{ m.id }}"> {{ m.name }}</option>
-    </select>
+</p>
+<div class="well">
+    <div class="form-group">
+        <label for="make">Make</label>
+        <select name="" id="make" class="form-control" [(ngModel)]="filter.makeId" (change)="onFilterChange()">
+            <option value=""></option>
+            <option *ngFor="let m of makes" value="{{ m.id }}"> {{ m.name }}</option>
+        </select>
+    </div>
+    <button class="btn btn-default" (click)="resetFilter()">Reset</button>
 </div>
-
 <table class="table">
     <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Make</th>
-        <th scope="col">Model</th>
-        <th scope="col">Name</th>
-        <th scope="col"></th>
-      </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Make</th>
+            <th scope="col">Model</th>
+            <th scope="col">Name</th>
+            <th scope="col"></th>
+        </tr>
     </thead>
     <tbody>
         <tr *ngFor="let v of vehicles">
@@ -27,7 +28,9 @@
             <td>{{ v.make.name }}</td>
             <td>{{ v.model.name }}</td>
             <td>{{ v.contact.name}}</td>
-            <td><a [routerLink]="['/vehicles/', v.id]">View</a></td>
+            <td>
+                <a [routerLink]="['/vehicles/', v.id]">View</a>
+            </td>
         </tr>
     </tbody>
-  </table>
+</table>
