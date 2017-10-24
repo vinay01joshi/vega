@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using vega.Controllers.Resources;
 using vega.Core;
 using vega.Core.Models;
@@ -16,8 +17,10 @@ namespace vega.Controllers
         private readonly IMapper mapper;
         private readonly IVehicleRepository repository;
         private readonly IUnitOfWork unitOfWork;
-        public VehiclesController(IMapper mapper, IVehicleRepository repository, IUnitOfWork unitOfWork)
+        private readonly ILogger<VehiclesController> logger;
+        public VehiclesController(IMapper mapper, IVehicleRepository repository, IUnitOfWork unitOfWork, ILogger<VehiclesController> logger)
         {
+            this.logger = logger;
             this.unitOfWork = unitOfWork;
             this.repository = repository;
             this.mapper = mapper;
@@ -25,7 +28,7 @@ namespace vega.Controllers
 
         [HttpPost]
         public async Task<IActionResult> CreateVehicle([FromBody] SaveVehicleResource vehicleResource)
-        {           
+        {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
@@ -93,11 +96,14 @@ namespace vega.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<VehicleResource>> GetVehicle() 
+        public async Task<IEnumerable<VehicleResource>> GetVehicle(FilterResource filterResource)
         {
-            var vehicle = await repository.GetVehicles();
+            logger.LogError("FilterResource Make ID "+filterResource.MakeId.ToString());
+            var filter = mapper.Map<FilterResource, Filter>(filterResource);
 
-            return mapper.Map<IEnumerable<Vehicle>,IEnumerable<VehicleResource>>(vehicle);
+            var vehicle = await repository.GetVehicles(filter);
+
+            return mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleResource>>(vehicle);
         }
     }
 }

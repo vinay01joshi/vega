@@ -11,6 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using vega.Persistence;
 using AutoMapper;
 using vega.Core;
+using Microsoft.Extensions.Logging;
 
 namespace vega
 {
@@ -39,10 +40,11 @@ namespace vega
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {   
             if (env.IsDevelopment())
             {
+                loggerFactory.AddConsole().AddDebug();
                 app.UseDeveloperExceptionPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
