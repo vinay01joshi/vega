@@ -97,10 +97,9 @@ namespace vega.Controllers
 
         [HttpGet]
         public async Task<IEnumerable<VehicleResource>> GetVehicle(FilterResource filterResource)
-        {
-            logger.LogError("FilterResource Make ID "+filterResource.MakeId.ToString());
+        {            
             var filter = mapper.Map<FilterResource, Filter>(filterResource);
-
+            logger.LogError("Filter Class Value ---->>" + filter.MakeId.ToString());
             var vehicle = await repository.GetVehicles(filter);
 
             return mapper.Map<IEnumerable<Vehicle>, IEnumerable<VehicleResource>>(vehicle);
