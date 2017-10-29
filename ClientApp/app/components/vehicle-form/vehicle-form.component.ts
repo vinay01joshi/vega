@@ -37,14 +37,11 @@ export class VehicleFormComponent implements OnInit {
     private toastyService: ToastyService
     ) { 
       route.params.subscribe( p => {          
-          this.vehicle.id = +p['id'];
+          this.vehicle.id = +p['id'] || 0;
       })
     }
 
   ngOnInit() {
-    if(Number.isNaN(this.vehicle.id))
-      return ;
-      
       var sources = [
         this.vehicleService.getMakes(),
         this.vehicleService.getFeatures(),
