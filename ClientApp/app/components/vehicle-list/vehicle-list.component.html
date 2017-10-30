@@ -14,18 +14,20 @@
 </div>
 <table class="table">
     <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th (click)="sortBy('make')" scope="col">
-                Make
-                <i *ngIf="query.sortBy === 'make'" 
-                    class="fa"
-                    [class.fa-sort-asc]="query.isSortAscending"
-                    [class.fa-sort-desc]="!query.isSortAscending"></i>
-            </th>
-            <th (click)="sortBy('model')" scope="col">Model</th>
-            <th (click)="sortBy('contactName')" scope="col">Name</th>
-            <th scope="col"></th>
+        <tr>         
+            <th *ngFor="let c of columns">
+                <div *ngIf="c.isSortable" (click)="sortBy(c.key)">
+                    {{ c.title }}
+                    <i *ngIf="query.sortBy === c.key" 
+                            class="fa"
+                            [class.fa-sort-asc]="query.isSortAscending"
+                            [class.fa-sort-desc]="!query.isSortAscending">
+                    </i>
+                </div>
+                <div *ngIf="!c.isSortable">
+                    {{ c.title }}
+                </div>               
+            </th>         
         </tr>
     </thead>
     <tbody>
