@@ -1,3 +1,4 @@
+import { PaginationComponent } from './components/shared/pagination.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import *  as Raven from 'raven-js';
 import { AppErrorHandler } from './app.error-handler';
@@ -29,6 +30,7 @@ Raven.config('https://e35f01e808ef4cb79ee4d03ed8a31828@sentry.io/228245').instal
         HomeComponent,
         VehicleFormComponent,
         VehicleListComponent,
+        PaginationComponent
     ],
     imports: [
         CommonModule,
