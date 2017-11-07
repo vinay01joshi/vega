@@ -1,3 +1,4 @@
+import { ViewVehicleComponent } from './components/view-vehicle/view-vehicle.component';
 import { PaginationComponent } from './components/shared/pagination.component';
 import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
 import *  as Raven from 'raven-js';
@@ -30,7 +31,8 @@ Raven.config('https://e35f01e808ef4cb79ee4d03ed8a31828@sentry.io/228245').instal
         HomeComponent,
         VehicleFormComponent,
         VehicleListComponent,
-        PaginationComponent
+        PaginationComponent,
+        ViewVehicleComponent
     ],
     imports: [
         CommonModule,
@@ -40,7 +42,8 @@ Raven.config('https://e35f01e808ef4cb79ee4d03ed8a31828@sentry.io/228245').instal
         RouterModule.forRoot([
             { path: '', redirectTo: 'vehicles', pathMatch: 'full' },
             { path: 'vehicles/new', component: VehicleFormComponent },
-            { path: 'vehicles/:id', component: VehicleFormComponent },
+            { path: 'vehicles/edit/:id', component: VehicleFormComponent },
+            { path: 'vehicles/:id', component: ViewVehicleComponent },
             { path: 'vehicles', component: VehicleListComponent },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
