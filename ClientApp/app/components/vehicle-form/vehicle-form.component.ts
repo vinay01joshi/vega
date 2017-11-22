@@ -103,6 +103,7 @@ export class VehicleFormComponent implements OnInit {
         showClose: true,
         timeout:5000
       });
+      this.router.navigate(['/vehicles/'], vehicle.id);
     });
   }
 
